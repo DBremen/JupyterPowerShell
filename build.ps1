@@ -1,8 +1,8 @@
 <#
 requirements:
 python
-HTMLAgilityPack: 
-Install-Package -Name $package -ProviderName NuGet -Source 'https://www.nuget.org/api/v2' -Destination $Destination
+HTMLAgilityPack
+Install-Package -Name HTMLAgilityPack -ProviderName NuGet -Source 'https://www.nuget.org/api/v2' -Destination $Destination
 nb2wp.py and style.css:
 https://github.com/bennylp/nb2wp
 #>
@@ -13,16 +13,17 @@ function build {
             [Parameter(Mandatory)]
             $NotebookName,
             [Parameter(Mandatory)]
-            $urlPostFix
+            $UrlPostFix,
+            $urlPrefix = 'https://powershellone.files.wordpress.com/'
 
           
         )
-    $urlPrefix = 'https://powershellone.files.wordpress.com/' + $urlPostFix
-    if (!$urlPrefix.EndsWith('/')) { $urlPrefix = $urlPrefix + '/'}
+    $imageUrlPrefix = $urlPrefix + $UrlPostFix
+    if (! $imageUrlPrefix.EndsWith('/')) {  $imageUrlPrefix =  $imageUrlPrefix+ '/'}
     $path = $PSScriptRoot
     Push-Location $path
     $NotebookName = $NotebookName.Replace('.\','')
-    python .\run_nb2wp.py $NotebookName $urlPrefix
+    python .\run_nb2wp.py $NotebookName $imageUrlPrefix
     Add-Type -Path "C:\scripts\ps1\get-stats\Helper\HtmlAgilityPack.dll" 
     $doc = New-Object HtmlAgilityPack.HtmlDocument
     $htmlName = [System.IO.Path]::ChangeExtension($NotebookName, 'html')
