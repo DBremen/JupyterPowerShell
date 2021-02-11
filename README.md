@@ -1,6 +1,8 @@
-# JupyterPowerShell
+# Jupyter PowerShell
 
-Testing to publich Jupyter based .NET interactive (https://github.com/dotnet/interactive/blob/main/docs/CreateBinder.md) with binder.
+Jupyter notebook based on  .NET interactive (https://github.com/dotnet/interactive/blob/main/docs/CreateBinder.md) with binder.
 
 Notebooks can be created online using this [link](https://mybinder.org/v2/gh/dotnet/interactive/main?urlpath=lab)
+
+Conversion of notebooks to WordPress.com compatible html based on https://github.com/bennylp/nb2wp
 
