@@ -18,7 +18,7 @@
 </div>
 <div class="cell border-box-sizing text_cell rendered" style="border-radius: 2px; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; border-width: 1px; border-style: solid; border-color: transparent; width: 100%; padding: 5px; margin: 0; outline: none; border-left-width: 1px; padding-left: 5px; background: linear-gradient(to right, transparent -40px, transparent 1px, transparent 1px, transparent 100%); -webkit-box-orient: horizontal; -webkit-box-align: stretch; -moz-box-orient: horizontal; -moz-box-align: stretch; box-orient: horizontal; box-align: stretch; display: flex; flex-direction: row; align-items: stretch"><div class="inner_cell" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; -webkit-box-orient: vertical; -webkit-box-align: stretch; -moz-box-orient: vertical; -moz-box-align: stretch; box-orient: vertical; box-align: stretch; display: flex; flex-direction: column; align-items: stretch; -webkit-box-flex: 1; -moz-box-flex: 1; box-flex: 1; flex: 1">
 <div class="text_cell_render border-box-sizing rendered_html" style="outline: none; resize: none; width: inherit; border-style: none; padding: 0.5em 0.5em 0.5em 0.4em; color: #000; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; overflow-x: auto; overflow-y: hidden">
-<p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 1em 0 9px; margin-bottom: 0; text-align: left">In this post I would like to share how one can use PowerShell Jupyter Notebooks with .Net interactive (The .Net interactive Notebook feature has also been recently introduced by the PowerShell team (see <a href="https://devblogs.microsoft.com/powershell/public-preview-of-powershell-support-in-jupyter-notebooks/" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background-color: transparent; color: #337ab7; text-decoration: none">here</a>)) as a blogging platform for Wordpress.com or Markdown based static site generators like <a href="https://jekyllrb.com/" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background-color: transparent; color: #337ab7; text-decoration: none">Jeykll</a>.  In fact the blog post you are currently reading is entirely based on such a notebook. You can open the notebook and interactively run the PowerShell code using this <a href="https://mybinder.org/v2/gh/DBremen/JupyterPowerShell/main?urlpath=lab/Jupyter_PowerShell_Notebooks_based_blogging.ipynb" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background-color: transparent; color: #337ab7; text-decoration: none">link</a> or start with a new PowerShell notebook from this <a href="https://mybinder.org/v2/gh/dotnet/interactive/main?urlpath=lab" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background-color: transparent; color: #337ab7; text-decoration: none">link</a>. While this blog post/notebook will not contain much PowerShell code I'm planning to use this for all my blog posts going forward.</p>
+<p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 1em 0 9px; margin-bottom: 0; text-align: left">In this post I would like to share how one can use PowerShell Jupyter Notebooks with .Net interactive (The .Net interactive Notebook feature has also been recently introduced by the PowerShell team (see <a href="https://devblogs.microsoft.com/powershell/public-preview-of-powershell-support-in-jupyter-notebooks/" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background-color: transparent; color: #337ab7; text-decoration: none">here</a>)) as a blogging platform for Wordpress.com or Markdown based static site generators like <a href="https://jekyllrb.com/" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background-color: transparent; color: #337ab7; text-decoration: none">Jeykll</a>.  In fact the blog post you are currently reading is entirely based on such a notebook. You can open the notebook and interactively run the PowerShell code using this <a href="https://mybinder.org/v2/gh/DBremen/JupyterPowerShell/main?urlpath=lab/tree/Jupyter_PowerShell_Notebooks_based_blogging.ipynb" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background-color: transparent; color: #337ab7; text-decoration: none">link</a> or start with a new PowerShell notebook from this <a href="https://mybinder.org/v2/gh/dotnet/interactive/main?urlpath=lab" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background-color: transparent; color: #337ab7; text-decoration: none">link</a>. While this blog post/notebook will not contain much PowerShell code I'm planning to use this for all my blog posts going forward.</p>
 </div>
 </div>
 </div>
@@ -34,15 +34,126 @@
 
 <div class="inner_cell" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; -webkit-box-orient: vertical; -webkit-box-align: stretch; -moz-box-orient: vertical; -moz-box-align: stretch; box-orient: vertical; box-align: stretch; display: flex; flex-direction: column; align-items: stretch; -webkit-box-flex: 1; -moz-box-flex: 1; box-flex: 1; flex: 1">
 <div class="input_area" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; border: 1px solid #cfcfcf; border-radius: 2px; background: #f7f7f7; line-height: 1.21429em">
-<div class="highlight hl-ipython3" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background: #f8f8f8; margin: 0; border: none; padding: 0; background-color: transparent"><pre style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; overflow: auto; font-family: monospace; display: block; word-break: break-all; word-wrap: break-word; color: #333; border-radius: 2px; font-size: inherit; line-height: inherit; white-space: pre; margin: 5pt; border: none; padding: 0; background-color: transparent"><span style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box"></span><span class="o" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; color: #666">$</span><span class="n" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box">text</span> <span class="o" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; color: #666">=</span> <span class="p" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box">[</span><span class="n" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box">System</span><span class="o" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; color: #666">.</span><span class="n" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box">Uri</span><span class="p" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box">]::</span><span class="n" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box">EscapeDataString</span><span class="p" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box">(</span><span class="s1" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; color: #BA2121">'Hello World!'</span><span class="p" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box">)</span>
-<span class="o" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; color: #666">$</span><span class="n" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box">url</span> <span class="o" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; color: #666">=</span> <span class="s2" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; color: #BA2121">"https://artii.herokuapp.com/make?text=$text&amp;font=big"</span>
-<span class="n" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box">Invoke</span><span class="o" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; color: #666">-</span><span class="n" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box">RestMethod</span> <span class="o" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; color: #666">$</span><span class="n" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box">url</span> <span class="o" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; color: #666">-</span><span class="n" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box">DisableKeepAlive</span>
+<div class="highlight hl-powershell" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background: #f8f8f8; margin: 0; border: none; padding: 0; background-color: transparent"><pre style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; overflow: auto; font-family: monospace; display: block; word-break: break-all; word-wrap: break-word; color: #333; border-radius: 2px; font-size: inherit; line-height: inherit; white-space: pre; margin: 5pt; border: none; padding: 0; background-color: transparent"><span style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box"></span><span class="p" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box">$</span><span class="n" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box">text</span> <span class="p" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box">=</span> <span class="no" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; color: #800">[System.Uri]</span><span class="p" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box">::</span><span class="n" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box">EscapeDataString</span><span class="p" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box">(</span><span class="s1" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; color: #BA2121">'Hello World!'</span><span class="p" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box">)</span>
+<span class="p" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box">$</span><span class="n" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box">url</span> <span class="p" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box">=</span> <span class="s2" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; color: #BA2121">"https://artii.herokuapp.com/make?text=$text&amp;font=big"</span>
+<span class="nb" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; color: #008000">Invoke-RestMethod</span> <span class="p" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box">$</span><span class="n" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box">url</span> <span class="n" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box">-DisableKeepAlive</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="output_wrapper" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; position: relative; -webkit-box-orient: vertical; -webkit-box-align: stretch; -moz-box-orient: vertical; -moz-box-align: stretch; box-orient: vertical; box-align: stretch; display: flex; flex-direction: column; align-items: stretch; z-index: 1">
 <div class="output" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; -webkit-box-orient: vertical; -webkit-box-align: stretch; -moz-box-orient: vertical; -moz-box-align: stretch; box-orient: vertical; box-align: stretch; display: flex; flex-direction: column; align-items: stretch">
+<div class="output_area" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; padding: 0; page-break-inside: avoid; -webkit-box-orient: horizontal; -webkit-box-align: stretch; -moz-box-orient: horizontal; -moz-box-align: stretch; box-orient: horizontal; box-align: stretch; display: flex; flex-direction: row; align-items: stretch">
+
+<div class="output_html rendered_html output_subarea" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; color: #000; overflow-x: auto; padding: 0.4em; -webkit-box-flex: 1; -moz-box-flex: 1; box-flex: 1; flex: 1; max-width: calc(100% - 14ex)">
+<div style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box">
+<div id="dotnet-interactive-this-cell-172.Microsoft.DotNet.Interactive.Http.HttpPort" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: none">
+        The below script needs to be able to find the current output cell; this is an easy method to get it.
+    </div>
+<script style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box" type="text/javascript">
+async function probeAddresses(probingAddresses) {
+    function timeout(ms, promise) {
+        return new Promise(function (resolve, reject) {
+            setTimeout(function () {
+                reject(new Error('timeout'))
+            }, ms)
+            promise.then(resolve, reject)
+        })
+    }
+
+    if (Array.isArray(probingAddresses)) {
+        for (let i = 0; i < probingAddresses.length; i++) {
+
+            let rootUrl = probingAddresses[i];
+
+            if (!rootUrl.endsWith('/')) {
+                rootUrl = `${rootUrl}/`;
+            }
+
+            try {
+                let response = await timeout(1000, fetch(`${rootUrl}discovery`, {
+                    method: 'POST',
+                    cache: 'no-cache',
+                    mode: 'cors',
+                    timeout: 1000,
+                    headers: {
+                        'Content-Type': 'text/plain'
+                    },
+                    body: probingAddresses[i]
+                }));
+
+                if (response.status == 200) {
+                    return rootUrl;
+                }
+            }
+            catch (e) { }
+        }
+    }
+}
+
+function loadDotnetInteractiveApi() {
+    probeAddresses(["http://10.2.1.196:1025/", "http://127.0.0.1:1025/"])
+        .then((root) => {
+        // use probing to find host url and api resources
+        // load interactive helpers and language services
+        let dotnetInteractiveRequire = require.config({
+        context: '172.Microsoft.DotNet.Interactive.Http.HttpPort',
+                paths:
+            {
+                'dotnet-interactive': `${root}resources`
+                }
+        }) || require;
+
+            window.dotnetInteractiveRequire = dotnetInteractiveRequire;
+
+            window.configureRequireFromExtension = function(extensionName, extensionCacheBuster) {
+                let paths = {};
+                paths[extensionName] = `${root}extensions/${extensionName}/resources/`;
+                
+                let internalRequire = require.config({
+                    context: extensionCacheBuster,
+                    paths: paths,
+                    urlArgs: `cacheBuster=${extensionCacheBuster}`
+                    }) || require;
+
+                return internalRequire
+            };
+        
+            dotnetInteractiveRequire([
+                    'dotnet-interactive/dotnet-interactive'
+                ],
+                function (dotnet) {
+                    dotnet.init(window);
+                },
+                function (error) {
+                    console.log(error);
+                }
+            );
+        })
+        .catch(error => {console.log(error);});
+    }
+
+// ensure `require` is available globally
+if ((typeof(require) !==  typeof(Function)) || (typeof(require.config) !== typeof(Function))) {
+    let require_script = document.createElement('script');
+    require_script.setAttribute('src', 'https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js');
+    require_script.setAttribute('type', 'text/javascript');
+    
+    
+    require_script.onload = function() {
+        loadDotnetInteractiveApi();
+    };
+
+    document.getElementsByTagName('head')[0].appendChild(require_script);
+}
+else {
+    loadDotnetInteractiveApi();
+}
+
+    </script>
+</div>
+</div>
+</div>
 <div class="output_area" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; padding: 0; page-break-inside: avoid; -webkit-box-orient: horizontal; -webkit-box-align: stretch; -moz-box-orient: horizontal; -moz-box-align: stretch; box-orient: horizontal; box-align: stretch; display: flex; flex-direction: row; align-items: stretch">
 
 <div class="output_subarea output_stream output_stdout output_text" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; overflow-x: auto; padding: 0.4em; -webkit-box-flex: 1; -moz-box-flex: 1; box-flex: 1; flex: 1; max-width: calc(100% - 14ex); text-align: left; color: #000; line-height: 1.21429em">
@@ -62,7 +173,7 @@
 </div>
 <div class="cell border-box-sizing text_cell rendered" style="border-radius: 2px; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; border-width: 1px; border-style: solid; border-color: transparent; width: 100%; padding: 5px; margin: 0; outline: none; border-left-width: 1px; padding-left: 5px; background: linear-gradient(to right, transparent -40px, transparent 1px, transparent 1px, transparent 100%); -webkit-box-orient: horizontal; -webkit-box-align: stretch; -moz-box-orient: horizontal; -moz-box-align: stretch; box-orient: horizontal; box-align: stretch; display: flex; flex-direction: row; align-items: stretch"><div class="inner_cell" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; -webkit-box-orient: vertical; -webkit-box-align: stretch; -moz-box-orient: vertical; -moz-box-align: stretch; box-orient: vertical; box-align: stretch; display: flex; flex-direction: column; align-items: stretch; -webkit-box-flex: 1; -moz-box-flex: 1; box-flex: 1; flex: 1">
 <div class="text_cell_render border-box-sizing rendered_html" style="outline: none; resize: none; width: inherit; border-style: none; padding: 0.5em 0.5em 0.5em 0.4em; color: #000; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; overflow-x: auto; overflow-y: hidden">
-<h2 id="Why-PowerShell-Jupyter-notebooks-for-blogging?-" style='-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; color: inherit; margin-bottom: 9px; font-size: 157.1%; margin: 1.27em 0 0 0; font-weight: bold; line-height: 1; margin-top: 0.636em'>Why PowerShell Jupyter notebooks for blogging? <a name="why" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background-color: transparent; color: #337ab7; text-decoration: none"></a><a class="anchor-link" href="#Why-PowerShell-Jupyter-notebooks-for-blogging?-" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background-color: transparent; color: #337ab7; text-decoration: none"></a></h2><p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 1em 0 9px; margin-bottom: 0; text-align: left; margin-top: 1em">PowerShell as a language is designed as an interactive language since it can be used from the Console and also as a scripting language. Therefore it's just natural to share code examples and their output as part of blogging about PowerShell. With Jupyter Notebooks the output, the code and the text, images, equations are all part of one document. A blog post can be written as a Notebook with the ability to interactively modify run and re-run the code as you. Once the Notebook has been finished the document (.ipynb) can be converted to either HTML (for WordPress.com) or Markdown format (the conversion and steps for Markdown are easier but I'm still stuck with my old WordPress.com blog for now even though I already have one on GitHub pages too) . In addition to the static document one can also share a Notebook hosted on Github through a specific link (all of the steps required will be described in detail) to be run interactively in the browser through <a href="https://mybinder.org/" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background-color: transparent; color: #337ab7; text-decoration: none">Binder</a>.</p>
+<h2 id="Why-PowerShell-Jupyter-notebooks-for-blogging?-" style='-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; color: inherit; margin-bottom: 9px; font-size: 157.1%; margin: 1.27em 0 0 0; font-weight: bold; line-height: 1; margin-top: 0.636em'>Why PowerShell Jupyter notebooks for blogging? <a name="why" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background-color: transparent; color: #337ab7; text-decoration: none"></a><a class="anchor-link" href="#Why-PowerShell-Jupyter-notebooks-for-blogging?-" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background-color: transparent; color: #337ab7; text-decoration: none"></a></h2><p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 1em 0 9px; margin-bottom: 0; text-align: left; margin-top: 1em">PowerShell as a language is designed as an interactive language since it can be used from the Console and also as a scripting language. Therefore it's just natural to share code examples and their output as part of blogging about PowerShell. With Jupyter Notebooks the output, the code and the text, images (images that are pasted to the Notebook are automatically embedded), equations are all part of one document. A blog post can be written as a Notebook with the ability to interactively modify run and re-run the code. Once the Notebook has been finished the document (.ipynb) can be converted to either HTML (for WordPress.com) or Markdown format (the conversion and steps for Markdown are easier but I'm still somehow sticking with my old WordPress.com blog for now even though I already have one on GitHub pages too) . In addition to the static document one can also share a Notebook hosted on Github through a specific link (all of the steps required will be described in detail) to be run interactively in the browser through <a href="https://mybinder.org/" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background-color: transparent; color: #337ab7; text-decoration: none">Binder</a>.</p>
 </div>
 </div>
 </div>
@@ -75,10 +186,10 @@
 </li>
 <li style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box"><p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 1em 0 9px; margin-bottom: 0; text-align: left">Jupyter notebook converters</p>
 <ul style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin-top: 0; margin-bottom: 0; padding-left: 0; list-style: circle; margin: 0 2em">
-<li style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box"><p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 1em 0 9px; margin-bottom: 0; text-align: left">Markdown: based on this <a href="https://www.fast.ai/2020/01/20/nb2md/" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background-color: transparent; color: #337ab7; text-decoration: none">article</a> from fast.ai I can recommend the usage of their nbdev tool</p>
+<li style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box"><p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 1em 0 9px; margin-bottom: 0; text-align: left">Markdown conversion: based on this <a href="https://www.fast.ai/2020/01/20/nb2md/" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background-color: transparent; color: #337ab7; text-decoration: none">article</a> from fast.ai I can recommend the usage of their nbdev tool</p>
 <p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 1em 0 9px; margin-bottom: 0; text-align: left"><code style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-family: monospace; border-radius: 2px; white-space: pre; border: 0; background-color: #fff; color: #000; font-size: 100%; padding: 0">pip install nbdev</code></p>
 </li>
-<li style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box"><p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 1em 0 9px; margin-bottom: 0; text-align: left">Html for WordPress.com (WordPress.com requires the CSS to be inline (inside the HTML elements): I'm using the excellent python script nb2wp <a href="https://github.com/bennylp/nb2wp" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background-color: transparent; color: #337ab7; text-decoration: none">here</a>. You require the nb2wp.py script and the style.css CSS style sheet from the repository.</p>
+<li style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box"><p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 1em 0 9px; margin-bottom: 0; text-align: left">Html for WordPress.com (WordPress.com requires the CSS to be inline (inside the HTML elements) conversion: I'm using the excellent python script nb2wp from <a href="https://github.com/bennylp/nb2wp" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background-color: transparent; color: #337ab7; text-decoration: none">here</a>. You require the nb2wp.py script and the style.css CSS style sheet from the repository.</p>
 <ul style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin-top: 0; margin-bottom: 0; padding-left: 0; list-style: circle; margin: 0 2em">
 <li style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box"><p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 1em 0 9px; margin-bottom: 0; text-align: left">The script itself has also some dependencies that you will require to install via pip in case you run into errors when executing the script.</p>
 </li>
@@ -183,7 +294,10 @@
 <div class="cell border-box-sizing text_cell rendered" style="border-radius: 2px; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; border-width: 1px; border-style: solid; border-color: transparent; width: 100%; padding: 5px; margin: 0; outline: none; border-left-width: 1px; padding-left: 5px; background: linear-gradient(to right, transparent -40px, transparent 1px, transparent 1px, transparent 100%); -webkit-box-orient: horizontal; -webkit-box-align: stretch; -moz-box-orient: horizontal; -moz-box-align: stretch; box-orient: horizontal; box-align: stretch; display: flex; flex-direction: row; align-items: stretch"><div class="inner_cell" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; -webkit-box-orient: vertical; -webkit-box-align: stretch; -moz-box-orient: vertical; -moz-box-align: stretch; box-orient: vertical; box-align: stretch; display: flex; flex-direction: column; align-items: stretch; -webkit-box-flex: 1; -moz-box-flex: 1; box-flex: 1; flex: 1">
 <div class="text_cell_render border-box-sizing rendered_html" style="outline: none; resize: none; width: inherit; border-style: none; padding: 0.5em 0.5em 0.5em 0.4em; color: #000; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; overflow-x: auto; overflow-y: hidden">
 <ul style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin-top: 0; margin-bottom: 9px; list-style: disc; margin: 0 2em; padding-left: 0">
-<li style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box">Put the .ipynb file into the root of your folder.</li>
+<li style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box">Put the .ipynb file into the root of your folder.<ul style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin-top: 0; margin-bottom: 0; padding-left: 0; list-style: circle; margin: 0 2em">
+<li style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box">Make sure to save the file before you download it to make sure any pasted images will be embedded.</li>
+</ul>
+</li>
 <li style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box">Run the build.ps1 script<ul style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin-top: 0; margin-bottom: 0; padding-left: 0; list-style: circle; margin: 0 2em">
 <li style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box">The build function requires to following arguments<ol style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin-top: 0; margin-bottom: 0; list-style: decimal; margin: 0 2em; padding-left: 0">
 <li style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box">NotebookName - The name of the Jupyter Notebook file</li>
@@ -224,11 +338,21 @@
 </div>
 <div class="cell border-box-sizing text_cell rendered" style="border-radius: 2px; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; border-width: 1px; border-style: solid; border-color: transparent; width: 100%; padding: 5px; margin: 0; outline: none; border-left-width: 1px; padding-left: 5px; background: linear-gradient(to right, transparent -40px, transparent 1px, transparent 1px, transparent 100%); -webkit-box-orient: horizontal; -webkit-box-align: stretch; -moz-box-orient: horizontal; -moz-box-align: stretch; box-orient: horizontal; box-align: stretch; display: flex; flex-direction: row; align-items: stretch"><div class="inner_cell" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; -webkit-box-orient: vertical; -webkit-box-align: stretch; -moz-box-orient: vertical; -moz-box-align: stretch; box-orient: vertical; box-align: stretch; display: flex; flex-direction: column; align-items: stretch; -webkit-box-flex: 1; -moz-box-flex: 1; box-flex: 1; flex: 1">
 <div class="text_cell_render border-box-sizing rendered_html" style="outline: none; resize: none; width: inherit; border-style: none; padding: 0.5em 0.5em 0.5em 0.4em; color: #000; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; overflow-x: auto; overflow-y: hidden">
-<p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 1em 0 9px; margin-bottom: 0; text-align: left">There is only one setup step which is to create a small Python script to update the image src pathes to point to /images folder of your blog. Put the following Python script into the root folder (I called it upd_md.py)</p>
-<div class="highlight" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background: #f8f8f8"><pre style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; overflow: auto; font-family: monospace; display: block; word-break: break-all; word-wrap: break-word; border-radius: 2px; line-height: inherit; white-space: pre; margin: 1em 2em; border: 0; background-color: #fff; color: #000; font-size: 100%; padding: 0"><span style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box"></span><span class="kn" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; color: #008000; font-weight: bold">import</span> <span class="nn" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; color: #00F; font-weight: bold">fileinput</span><span class="o" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; color: #666">,</span><span class="nn" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; color: #00F; font-weight: bold">re</span>
-<span class="k" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; color: #008000; font-weight: bold">for</span> <span class="n" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box">f</span> <span class="ow" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; color: #A2F; font-weight: bold">in</span> <span class="n" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box">fileinput</span><span class="o" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; color: #666">.</span><span class="n" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box">input</span><span class="p" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box">(</span><span class="n" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box">inplace</span><span class="o" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; color: #666">=</span><span class="kc" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; color: #008000; font-weight: bold">True</span><span class="p" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box">):</span>
-    <span class="nb" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; color: #008000">print</span><span class="p" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box">(</span><span class="n" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box">re</span><span class="o" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; color: #666">.</span><span class="n" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box">sub</span><span class="p" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box">(</span><span class="sa" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box">r</span><span class="s1" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; color: #BA2121">'^(!.*]\()(\w+_files/)'</span><span class="p" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box">,</span> <span class="sa" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box">r</span><span class="s1" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; color: #BA2121">'\1/images/\2'</span><span class="p" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box">,</span> <span class="n" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box">f</span><span class="p" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box">),</span> <span class="n" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box">end</span><span class="o" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; color: #666">=</span><span class="s1" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; color: #BA2121">''</span><span class="p" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box">)</span>
-</pre></div>
+<p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 1em 0 9px; margin-bottom: 0; text-align: left">There is only one setup step which is to create a PowerShell function to update the image src pathes to point to /images folder of your blog. Put the following PowerShell function into the root folder (I called it build.ps1)</p>
+<pre style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; overflow: auto; font-family: monospace; display: block; word-break: break-all; word-wrap: break-word; border-radius: 2px; line-height: inherit; white-space: pre; margin: 1em 2em; border: 0; background-color: #fff; color: #000; font-size: 100%; padding: 0"><code style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-family: monospace; white-space: pre; border-radius: 0; border: 0; background-color: #fff; color: #000; font-size: 100%; padding: 0">function build ($MarkdownFilePath){
+    $text = Get-Content $MarkdownFilePath  -Raw
+    $imgPath = Join-Path (Split-Path $MarkdownFilePath) ([System.IO.Path]::GetFileNameWithoutExtension($MarkdownFilePath))
+    $images = dir ($imgPath + '_files\att_[0-9]*.png')
+    foreach ($image in $images){
+        $toReplace = [regex]::Match($text,'!\[image\.png]\(attachment:[0-9a-f]{8}-.*\.png\)').Value
+        $newPath = (Split-path (Split-path $image.FullName) -leaf) + '/' + ($image.Name)
+        $replacement = '![image.png](' + $newPath + ')'
+        $text = $text.Replace($toReplace, $replacement)
+    }
+    $text = $text -replace '^(!.*]\()(\w+_files/)', '$1/images/$2'
+    $text = [regex]::replace($text, '^(!.*\]\()(\w+_files/)','$1/images/$2','Multiline')
+    $text | Set-Content $MarkdownFilePath -NoNewline
+}</code></pre>
 </div>
 </div>
 </div>
@@ -236,12 +360,18 @@
 <div class="text_cell_render border-box-sizing rendered_html" style="outline: none; resize: none; width: inherit; border-style: none; padding: 0.5em 0.5em 0.5em 0.4em; color: #000; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; overflow-x: auto; overflow-y: hidden">
 <ul style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin-top: 0; margin-bottom: 9px; list-style: disc; margin: 0 2em; padding-left: 0">
 <li style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box">Put the .ipynb into the root of the folder</li>
-<li style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box">Convert the .ipynb to Markdown using fast.ai's nbdev python script <code style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-family: monospace; border-radius: 2px; white-space: pre; border: 0; background-color: #fff; color: #000; font-size: 100%; padding: 0">nbdev_nb2md NAMEOFTHENOTEBOOKFILE.ipynb</code></li>
-<li style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box">Run the previously created upd_md.py script `python upd_md.py NAMEOFTHENOTEBOOKFILE.md'</li>
-<li style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box">Copy the generated .md file into your 'posts' folder prefixing it with the required YYYY-MMMM-DD- prefix</li>
-<li style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box">Copy the extracted images from the "images\NAMEOFTHENOTEBOOKFILE" subfolder to your blog's images folder</li>
+<li style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box">Convert the .ipynb to Markdown using fast.ai's nbdev python based tool <code style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-family: monospace; border-radius: 2px; white-space: pre; border: 0; background-color: #fff; color: #000; font-size: 100%; padding: 0">nbdev_nb2md NAMEOFTHENOTEBOOKFILE.ipynb</code></li>
+<li style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box">Run the previously created build function `build NAMEOFTHENOTEBOOKFILE.md </li>
+<li style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box">Copy the generated .md file into your '_posts' folder prefixing it with the required YYYY-MMMM-DD- prefix</li>
+<li style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box">Copy the extracted images folder "NAMEOFTHENOTEBOOKFILE_files" subfolder to your blog's images folder (no prefix here)</li>
 <li style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box">Push the changes to your blog's repo</li>
 </ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" style="border-radius: 2px; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; border-width: 1px; border-style: solid; border-color: transparent; width: 100%; padding: 5px; margin: 0; outline: none; border-left-width: 1px; padding-left: 5px; background: linear-gradient(to right, transparent -40px, transparent 1px, transparent 1px, transparent 100%); -webkit-box-orient: horizontal; -webkit-box-align: stretch; -moz-box-orient: horizontal; -moz-box-align: stretch; box-orient: horizontal; box-align: stretch; display: flex; flex-direction: row; align-items: stretch"><div class="inner_cell" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; -webkit-box-orient: vertical; -webkit-box-align: stretch; -moz-box-orient: vertical; -moz-box-align: stretch; box-orient: vertical; box-align: stretch; display: flex; flex-direction: column; align-items: stretch; -webkit-box-flex: 1; -moz-box-flex: 1; box-flex: 1; flex: 1">
+<div class="text_cell_render border-box-sizing rendered_html" style="outline: none; resize: none; width: inherit; border-style: none; padding: 0.5em 0.5em 0.5em 0.4em; color: #000; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; overflow-x: auto; overflow-y: hidden">
+<p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 1em 0 9px; margin-bottom: 0; text-align: left">Happy blogging.</p>
 </div>
 </div>
 </div>
