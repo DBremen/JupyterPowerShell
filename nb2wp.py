@@ -64,7 +64,7 @@ def nb2wp(nbfile, out_dir='', template='full', css_files=['style.css'],
         if not quiet: print(msg)
        
     with open(nbfile, 'r') as f:
-        notebook = nbformat.read(f, as_version=4)
+        notebook = nbformat.read(file, as_version=4)
 
     html_exporter = nbconvert.HTMLExporter()
     if template:

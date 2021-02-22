@@ -22,9 +22,11 @@ function build {
     Push-Location $path
     $NotebookName = $NotebookName.Replace('.\','')
     $nbPath = (Resolve-Path $NotebookName)
+	copy $nbPath notebooks
     $text = Get-Content $nbPath -Raw
     $text = $text.Replace('$','~~')
-    $text | Set-Content $nbPath -NoNewline -Encoding utf8
+    $Utf8NoBomEncoding = New-Object System.Text.UTF8Encoding $False
+    [System.IO.File]::WriteAllLines($nbPath, $text, $Utf8NoBomEncoding)
     python .\run_nb2wp.py $NotebookName $imageUrlPrefix
     $text = $text.Replace('~~' ,'$')
     $text | Set-Content $nbPath -NoNewline  -Encoding utf8
@@ -41,8 +43,8 @@ function build {
     $result.foreach{$_.remove()}
     $doc.DocumentNode.SelectSingleNode('//body').OuterHtml | Set-Clipboard
     $doc.Save($htmlPath)
-    move (Resolve-Path $NotebookName) notebooks
+    del $nbPath
     Pop-Location
 }
 
-#build 'Using_PowerShell_and_RegEx_to_extract_text_between_delimiters.ipynb' 2021/02
+#build 'GraphTheory.ipynb' 2021/02
