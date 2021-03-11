@@ -25,6 +25,8 @@ function build {
 	copy $nbPath notebooks
     $text = Get-Content $nbPath -Raw
     $text = $text.Replace('$','~~')
+    $char = [char]0x9d
+    $text = $text -replace $char,''
     $Utf8NoBomEncoding = New-Object System.Text.UTF8Encoding $False
     [System.IO.File]::WriteAllLines($nbPath, $text, $Utf8NoBomEncoding)
     python .\run_nb2wp.py $NotebookName $imageUrlPrefix
@@ -47,4 +49,4 @@ function build {
     Pop-Location
 }
 
-build 'compareObject.ipynb' 2021/03
+build 'graphTheory2.ipynb' 2021/03
