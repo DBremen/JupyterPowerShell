@@ -43,6 +43,8 @@ function build {
     $result = $doc.Load($htmlPath)
     $result = $doc.DocumentNode.SelectNodes("//div[contains(@class,'prompt')]")
     $result.foreach{$_.remove()}
+    $result = $doc.DocumentNode.SelectNodes("//script")
+    $result.foreach{$_.remove()}
     $doc.DocumentNode.SelectSingleNode('//body').OuterHtml | Set-Clipboard
     $doc.Save($htmlPath)
     del $nbPath
