@@ -27,6 +27,8 @@ function build {
     $text = $text.Replace('$','~~')
     $char = [char]0x9d
     $text = $text -replace $char,''
+    $char = [char]0x8f
+    $text = $text -replace $char,''
     $Utf8NoBomEncoding = New-Object System.Text.UTF8Encoding $False
     [System.IO.File]::WriteAllLines($nbPath, $text, $Utf8NoBomEncoding)
     python .\run_nb2wp.py $NotebookName $imageUrlPrefix
@@ -51,4 +53,4 @@ function build {
     Pop-Location
 }
 
-build 'graphTheory2.ipynb' 2021/03
+build 'consoleFun.ipynb' 2021/03
